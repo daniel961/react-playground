@@ -41,19 +41,18 @@ function App() {
             <h1>Search:</h1>
             <input placeholder="Search Note by Title" onChange={e => { setSearchPattern(e.target.value) }} />
             <h1>Selected Notes:</h1>
-            {notes.map(({ title, body }, index) => {
-                if (title.includes(searchPattern)) {
-                    return <div key={index}>
-                        <h2>{title}</h2>
-                        <h3>{body}</h3>
-                        <button onClick={() => {
-                            setNotes(notes.filter((note, i) => {
-                                return !(i === index)
-                            }))
-                        }}>delete</button>
-                    </div>
-                }
-            })}
+            {
+                notes.filter(({ title }) => title.includes(searchPattern))
+                    .map(({ title, body }, index) =>
+                        <div key={index}>
+                            <h2>{title}</h2>
+                            <p>{body}</p>
+                            <button onClick={() => {
+                                setNotes(notes.filter((note, i) => i !== index))
+                            }}>Delete</button>
+                        </div>
+                    )
+            }
         </div>
     );
 }
