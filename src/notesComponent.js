@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-function App() {
+const App = () => {
     const [notes, setNotes] = useState([]);
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
