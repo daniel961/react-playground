@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Notes from './notesComponent';
+import NotesApp from './components/NotesApp';
 
 ReactDOM.render(
-  <Notes />,
+  <NotesApp />,
   document.getElementById('root')
 );
