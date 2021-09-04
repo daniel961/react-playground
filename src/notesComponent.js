@@ -1,14 +1,23 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useReducer } from 'react';
+import Note from './components/Note'
+import notesReducer from './reducers/noteReducers'
+// Todo s:
+// split to components
+// style with css
+
+
 
 const App = () => {
-    const [notes, setNotes] = useState([]);
+    const [notes, dispatch] = useReducer(notesReducer, []);
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
     const [searchPattern, setSearchPattern] = useState('');
 
     useEffect(() => {
         const storedNotes = JSON.parse(localStorage.getItem('notes'));
-        setNotes(storedNotes || []);
+        if (storedNotes) {
+            dispatch({ type: "POPULATE_NOTES", note: storedNotes })
+        }
     }, [])
 
     useEffect(() => {
@@ -17,9 +26,15 @@ const App = () => {
 
     const submitNote = (e) => {
         e.preventDefault();
-        setNotes([...notes, { title, body }])
-        setTitle('');
-        setBody('')
+        console.log();
+        if (title) {
+            dispatch({ type: "ADD_NOTE", note: { title, body } })
+            setTitle('');
+            setBody('')
+        }
+    }
+    const removeNote = (index) => {
+        dispatch({ type: "REMOVE_NOTE", index })
     }
 
     return (
@@ -39,18 +54,12 @@ const App = () => {
                 <button>Add Note</button>
             </form>
             <h1>Search:</h1>
-            <input placeholder="Search Note by Title" onChange={e => { setSearchPattern(e.target.value) }} />
+            <input placeholder="Search Note by Text" onChange={e => { setSearchPattern(e.target.value) }} />
             <h1>Selected Notes:</h1>
             {
-                notes.filter(({ title }) => title.includes(searchPattern))
+                notes.filter(({ title, body }) => (title.includes(searchPattern) || body.includes(searchPattern)))
                     .map(({ title, body }, index) =>
-                        <div key={index}>
-                            <h2>{title}</h2>
-                            <p>{body}</p>
-                            <button onClick={() => {
-                                setNotes(notes.filter((note, i) => i !== index))
-                            }}>Delete</button>
-                        </div>
+                        <Note key={index} title={title} body={body} index={index} remove={removeNote} />
                     )
             }
         </div>
