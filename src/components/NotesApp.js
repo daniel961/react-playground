@@ -1,15 +1,15 @@
 import { useState, useEffect, useReducer } from 'react';
-import NoteForm from './NoteForm'
+import AddNoteForm from './AddNoteForm'
 import notesReducer from '../reducers/notes'
 import FilterNotes from './FilterNotes';
 import SearchNote from './SearchNote'
+import NotesContext from '../context/notes-context'
+
 // Todo s:
 // style with css
 
 const App = () => {
     const [notes, dispatch] = useReducer(notesReducer, []);
-    const [title, setTitle] = useState('');
-    const [body, setBody] = useState('');
     const [searchPattern, setSearchPattern] = useState('');
 
     useEffect(() => {
@@ -23,35 +23,14 @@ const App = () => {
         localStorage.setItem('notes', JSON.stringify(notes))
     }, [notes])
 
-    const submitNote = (e) => {
-        e.preventDefault();
-        console.log();
-        if (title) {
-            dispatch({ type: "ADD_NOTE", note: { title, body } })
-            setTitle('');
-            setBody('')
-        }
-    }
-    const removeNote = (index) => {
-        dispatch({ type: "REMOVE_NOTE", index })
-    }
-    const changeTitle = function (value) {
-        setTitle(value)
-    }
-    const changeBody = function (value) {
-        setBody(value)
-    }
-    const changeSearchPattern = function (value) {
-        setSearchPattern(value);
-    }
 
     return (
-        <div>
+        <NotesContext.Provider value={{ notes, dispatch, searchPattern, setSearchPattern }}>
             <h1>NotesApp</h1>
-            <NoteForm submitNote={submitNote} title={title} body={body} setTitle={changeTitle} setBody={changeBody} />
-            <SearchNote changeSearchPattern={changeSearchPattern} />
-            <FilterNotes notes={notes} removeNote={removeNote} searchPattern={searchPattern} />
-        </div>
+            <AddNoteForm />
+            <SearchNote />
+            <FilterNotes />
+        </NotesContext.Provider>
     );
 }
 

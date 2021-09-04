@@ -1,10 +1,14 @@
-const Note = function ({ title, body, remove, index }) {
+import { useContext } from "react";
+import notesContext from "../context/notes-context";
+
+const Note = function ({ title, body, index }) {
+    const { dispatch } = useContext(notesContext)
     return (
         <div>
             <h2>{title}</h2>
             <p>{body}</p>
             <button onClick={() => {
-                remove(index)
+                dispatch({ type: 'REMOVE_NOTE', index })
             }}>Delete</button>
         </div>
     )
