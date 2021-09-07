@@ -5,7 +5,7 @@ import FilterNotes from './FilterNotes';
 import SearchNote from './SearchNote'
 import NotesContext from '../context/notes-context'
 
-// Todo s:
+// Todos:
 // style with css
 
 const App = () => {
