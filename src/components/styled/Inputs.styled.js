@@ -26,9 +26,24 @@ const InputNoteBody = styled.textarea`
     color: #455769;
     margin: 5px;
     margin-top: 22px;
-
-
 `;
 
-export { Input as default, InputNoteBody }
+const InputFilterNotes = styled.input`
+    width: 13vw;
+    border-radius: 20px;
+    background-color: #373F51;
+    color: white;
+    padding: 10px;
+    padding-left: 25px;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    margin-top: 220px;
+    ::placeholder {
+        color: white;
+        font-weight: 50;
+    }
+`;
+
+export { Input as default, InputNoteBody, InputFilterNotes }
 

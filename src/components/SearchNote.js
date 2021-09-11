@@ -1,13 +1,14 @@
 import { useContext } from "react";
 import notesContext from "../context/notes-context";
+import { InputFilterNotes } from './styled/Inputs.styled'
+
 
 const SearchNote = function () {
     const { setSearchPattern } = useContext(notesContext)
 
     return (
         <div>
-            <h1>Search:</h1>
-            <input placeholder="Search Note by Text" onChange={e => { setSearchPattern(e.target.value) }} />
+            <InputFilterNotes placeholder="Search Note by Text" onChange={e => { setSearchPattern(e.target.value) }} />
         </div>);
 }
 

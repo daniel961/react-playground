@@ -16,12 +16,13 @@ const TitleContainer = styled.div`
 `;
 
 const InputsContainer = styled.div`
+    margin-top: 50px;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    width: 100%;
+    width: wrap;
     height: 100%;
-    padding-left: 80px;
+    padding-left: 145px;
 `;
 
 const AddNoteContainer = styled.div`
@@ -65,12 +66,13 @@ const NoteContainer = styled.div`
         width: 15vw;
         height: 30vh;
         padding: 0;
-        margin: 5px;
+        margin: 35px;
         border: none;
         color: black;
     `;
 
 const NotesContainer = styled.div`
+   margin-top: 55px;
    display: grid;
    grid-template-columns: repeat(4, 1fr);
    justify-items: center;

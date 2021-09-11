@@ -12,14 +12,11 @@ const FilterNotes = function () {
             )
     }
     return (
-        <div>
-            <h1>Notes:</h1>
-            <NotesContainer>
-                {
-                    renderNotes().length ? renderNotes() : <p>No Notes To Show</p>
-                }
-            </NotesContainer>
-        </div>
+        <NotesContainer>
+            {
+                renderNotes().length ? renderNotes() : <p>No Notes To Show</p>
+            }
+        </NotesContainer>
     );
 }
 
