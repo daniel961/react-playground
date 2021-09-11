@@ -1,7 +1,7 @@
 import Note from './Note'
 import { useContext } from 'react'
 import notesContext from '../context/notes-context'
-
+import { NotesContainer } from './styled/Containers'
 
 const FilterNotes = function () {
     const { notes, searchPattern } = useContext(notesContext)
@@ -14,9 +14,11 @@ const FilterNotes = function () {
     return (
         <div>
             <h1>Notes:</h1>
-            {
-                renderNotes().length ? renderNotes() : <p>No Notes To Show</p>
-            }
+            <NotesContainer>
+                {
+                    renderNotes().length ? renderNotes() : <p>No Notes To Show</p>
+                }
+            </NotesContainer>
         </div>
     );
 }

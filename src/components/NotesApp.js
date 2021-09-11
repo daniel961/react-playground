@@ -4,7 +4,8 @@ import notesReducer from '../reducers/notes'
 import FilterNotes from './FilterNotes';
 import SearchNote from './SearchNote'
 import NotesContext from '../context/notes-context'
-
+import GlobalStyles from './styled/Global.style'
+import { AppContainer, TitleContainer, InputsContainer } from './styled/Containers'
 // Todos:
 // style with css
 
@@ -26,10 +27,15 @@ const App = () => {
 
     return (
         <NotesContext.Provider value={{ notes, dispatch, searchPattern, setSearchPattern }}>
-            <h1>NotesApp</h1>
-            <AddNoteForm />
-            <SearchNote />
-            <FilterNotes />
+            <GlobalStyles />
+            <AppContainer>
+                <TitleContainer>NotesApp</TitleContainer>
+                <InputsContainer>
+                    <AddNoteForm />
+                    <SearchNote />
+                </InputsContainer>
+                <FilterNotes />
+            </AppContainer>
         </NotesContext.Provider>
     );
 }
