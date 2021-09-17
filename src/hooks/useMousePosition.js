@@ -22,5 +22,3 @@ const useMousePosition = () => {
 
 
 export { useMousePosition as default }
-
-// export default useMousePosition;
