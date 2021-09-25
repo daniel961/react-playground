@@ -1,9 +1,9 @@
 import styled from "styled-components"
 
 
-const Contaiener = styled.div`
-width: 150px;
-
+export const Container = styled.div`
+width: 90vw;
+max-width: 100%;
+padding: 0 20px;
+margin: 0 auto;
 `;
-
-export default Contaiener;
