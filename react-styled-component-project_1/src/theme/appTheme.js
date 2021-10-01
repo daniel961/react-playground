@@ -1,3 +1,4 @@
+// used to save all application variables eg. colors etc . . .
 const theme = {
   colors: {
     header: "#ebfbff",
