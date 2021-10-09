@@ -15,12 +15,14 @@ export const CardTextContainer = styled.div`
 `;
 
 export const CardStyled = styled.div`
-  width: 85vw;
+  margin-right: 0;
+  width: 100%;
+  height: wrap;
   background-color: white;
   border-radius: 15px;
   box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.12);
   padding: 25px;
-  margin-top: 30px;
+  margin-top: 40px;
 `;
 
 export const Nav = styled.nav`
