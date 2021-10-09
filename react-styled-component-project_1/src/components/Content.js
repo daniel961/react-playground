@@ -4,7 +4,7 @@ const Content = ({ cardsList }) => {
   return (
     <Container>
       {cardsList.map(({ image, title, body }, index) => {
-        const direction = index % 2 === 0 ? "ltr" : "rtl";
+        const direction = index % 2 === 0 ? "row-reverse" : "row";
         return (
           <Card
             key={index}
