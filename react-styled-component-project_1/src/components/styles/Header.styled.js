@@ -16,3 +16,19 @@ export const StyledHeader = styled.header`
         background-color: red;
     } */
 `;
+
+export const Logo = styled.img`
+  @media (max-width: ${({ theme }) => theme.mobileBreakPoint}) {
+    margin-bottom: 40px;
+  }
+`;
+
+export const Image = styled.img`
+  width: 375px;
+  margin-left: 40px;
+  margin-bottom: 40px;
+
+  @media (max-width: ${({ theme }) => theme.mobileBreakPoint}) {
+    margin-top: 40px;
+  }
+`;

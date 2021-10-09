@@ -1,17 +1,16 @@
 import { ThemeProvider } from "styled-components";
 import appTheme from "./theme/appTheme";
-import { Container } from "./components/styles/Container.styled";
 import Header from "./components/Header";
+import Content from "./components/Content";
 import GlobalStyle from "./components/styles/Global";
+import cardsMock from "./mockData/cards";
 function App() {
   return (
     <ThemeProvider theme={appTheme}>
       <>
         <GlobalStyle />
         <Header></Header>
-        <Container>
-          <h1>Hello World!</h1>
-        </Container>
+        <Content cardsList={cardsMock}></Content>
       </>
     </ThemeProvider>
   );

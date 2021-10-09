@@ -5,6 +5,7 @@ const theme = {
     body: "#fff",
     footer: "#003333",
   },
+  mobileBreakPoint: "768px",
 };
 
 export { theme as default };
