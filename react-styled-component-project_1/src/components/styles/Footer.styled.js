@@ -9,7 +9,7 @@ export const FooterStyled = styled.div`
     list-style-type: none;
   }
 
-  ul li {
+  ul > li {
     margin: 0 0 20px 0;
   }
 
