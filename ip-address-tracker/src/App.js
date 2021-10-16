@@ -10,19 +10,20 @@ function App() {
   const [ipInfo, setIpInfo] = useState({});
 
   const fetchIpLocation = async function (ipAddress) {
-    // fetch ip location
-    const { ip, location, isp } = getIpInfo();
-    console.log(ip, location, isp);
-    // parse response
-    // set map location
-    // set ip details on panel
-    setIpInfo({
-      ip,
-      location: `${location.country} ${location.city}`,
-      timezone: location.timezone,
-      isp,
-    });
-    setMapLocation([location.lat, location.lng]);
+    try {
+      const { ip, location, isp } = await getIpInfo(ipAddress);
+      setIpInfo({
+        ip,
+        location: `${location.country} ${location.city}`,
+        timezone: location.timezone,
+        isp,
+      });
+      setMapLocation([location.lat, location.lng]);
+    } catch (err) {
+      console.log(
+        "Error: something went wrong - could not fetch data or update stats"
+      );
+    }
   };
 
   return (

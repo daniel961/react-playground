@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React, { useRef, useState } from "react";
 import { Map, TileLayer, LayersControl, Marker } from "react-leaflet";
 import markerIcon from "./images/icon-location.svg";
