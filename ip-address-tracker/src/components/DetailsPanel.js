@@ -1,6 +1,7 @@
 import { PanelContainer, DetailBlock } from "./styled/DetailsPanel.styled";
 
-function DetailsPanel({ ip, location, timezone, isp }) {
+function DetailsPanel({ ipInfo }) {
+  const { ip, location, timezone, isp } = ipInfo;
   return (
     <PanelContainer>
       <DetailBlock>
